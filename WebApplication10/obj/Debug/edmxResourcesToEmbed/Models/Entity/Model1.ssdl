@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVC3KATMANLIDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Table_Ceza">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="BASLANGIC" Type="smalldatetime" />
+    <Property Name="BITIS" Type="smalldatetime" />
+    <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Table_Hakkimizda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Table_Haraket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KITAB" Type="int" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="PERSONEL" Type="int" />
+    <Property Name="ALISTARIHI" Type="smalldatetime" />
+    <Property Name="VERISTARIHI" Type="smalldatetime" />
+    <Property Name="ISLEMDURUM" Type="bit" />
+    <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Table_ILETISIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KONU" Type="varchar" MaxLength="50" />
+    <Property Name="MESAJ" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Table_Kasa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AY" Type="varchar" MaxLength="20" />
+    <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Table_Kategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kategori_Ad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_Kitab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="nvarchar" MaxLength="50" />
+    <Property Name="KATEGORI" Type="tinyint" />
+    <Property Name="YAZAR" Type="int" />
+    <Property Name="BASIM_YIL" Type="char" MaxLength="4" />
+    <Property Name="DURUM" Type="bit" />
+    <Property Name="YAYIN_EVI" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAYFA_SAYI" Type="varchar" MaxLength="4" />
+    <Property Name="KITAB_SAYI" Type="int" />
+    <Property Name="KITAB_Resim" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Table_Personel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PERSONEL" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_Uyeler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="20" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+    <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="KULLANICIAD" Type="varchar" MaxLength="10" />
+    <Property Name="SIFRE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FOTOGRAH" Type="nvarchar" MaxLength="200" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
+    <Property Name="OKULMU" Type="bit" />
+    <Property Name="UNIVERSITEMI" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tablo_YAZAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="DETAY" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Table_Ceza_Table_Uyeler">
+    <End Role="Table_Uyeler" Type="Self.Table_Uyeler" Multiplicity="0..1" />
+    <End Role="Table_Ceza" Type="Self.Table_Ceza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Ceza">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Kitab">
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Kitab">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="KITAB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Personel">
+    <End Role="Table_Personel" Type="Self.Table_Personel" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Personel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Uyeler">
+    <End Role="Table_Uyeler" Type="Self.Table_Uyeler" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Kitab_Table_Kategori">
+    <End Role="Table_Kategori" Type="Self.Table_Kategori" Multiplicity="0..1" />
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Kategori">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Kitab">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Kitab_Tablo_YAZAR">
+    <End Role="Tablo_YAZAR" Type="Self.Tablo_YAZAR" Multiplicity="0..1" />
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tablo_YAZAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Kitab">
+        <PropertyRef Name="YAZAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVC3KATMANLIDBModelStoreContainer">
+    <EntitySet Name="Table_Ceza" EntityType="Self.Table_Ceza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Hakkimizda" EntityType="Self.Table_Hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Haraket" EntityType="Self.Table_Haraket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_ILETISIM" EntityType="Self.Table_ILETISIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Kasa" EntityType="Self.Table_Kasa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Kategori" EntityType="Self.Table_Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Kitab" EntityType="Self.Table_Kitab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Personel" EntityType="Self.Table_Personel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Uyeler" EntityType="Self.Table_Uyeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tablo_YAZAR" EntityType="Self.Tablo_YAZAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Table_Ceza_Table_Uyeler" Association="Self.FK_Table_Ceza_Table_Uyeler">
+      <End Role="Table_Uyeler" EntitySet="Table_Uyeler" />
+      <End Role="Table_Ceza" EntitySet="Table_Ceza" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Kitab" Association="Self.FK_Table_Haraket_Table_Kitab">
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Personel" Association="Self.FK_Table_Haraket_Table_Personel">
+      <End Role="Table_Personel" EntitySet="Table_Personel" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Uyeler" Association="Self.FK_Table_Haraket_Table_Uyeler">
+      <End Role="Table_Uyeler" EntitySet="Table_Uyeler" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Kitab_Table_Kategori" Association="Self.FK_Table_Kitab_Table_Kategori">
+      <End Role="Table_Kategori" EntitySet="Table_Kategori" />
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Kitab_Tablo_YAZAR" Association="Self.FK_Table_Kitab_Tablo_YAZAR">
+      <End Role="Tablo_YAZAR" EntitySet="Tablo_YAZAR" />
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

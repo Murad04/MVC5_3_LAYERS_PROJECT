@@ -1,0 +1,38 @@
+﻿@model MVC5_3_LAYERS_PROJECT.Models.Entity.Table_Haraket
+@{
+    ViewBag.Title = "OduncGuncelle";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Odunciade</h2>
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>Haraket ID</label>
+        @Html.TextBoxFor(h => h.ID, new { @class = "form-control" })
+        <br />
+        <label>Kitab ad</label>
+        @Html.TextBoxFor(h => h.Table_Kitab.AD, new { @class = "form-control" })
+        <br />
+        <label>Uye</label>
+        @Html.TextBoxFor(h => h.Table_Uyeler.AD, new { @class = "form-control" })
+        <br />
+        <label>Personel</label>
+        @Html.TextBoxFor(h => h.Table_Uyeler.AD, new { @class = "form-control" })
+        <br />
+        <label>Alis Tarihi</label>
+        @Html.TextBoxFor(h => h.ALISTARIHI, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Veris Tarihi</label>
+        @Html.TextBoxFor(h => h.VERISTARIHI, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Uyenin getirdiyi Tarihi</label>
+        <input type='text' class='form-control' name='UYEGETIRTARIH' value='@DateTime.Now.ToShortDateString()' ) />
+    </div>
+    <div>
+        <button class="btn btn-danger">Guncelle</button>
+    </div>
+}

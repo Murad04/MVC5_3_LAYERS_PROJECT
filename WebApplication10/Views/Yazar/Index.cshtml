@@ -1,0 +1,36 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity
+@model List<Tablo_YAZAR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Yazarlar</h2>
+<title>Yazarlar</title>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>ID</th>
+        <th>YAZAR_AD</th>
+        <th>YAZAR_SOYAD</th>
+        <th>YAZAR_BILGI</th>
+        <th colspan="2">ISLEMLER</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.AD</td>
+            <td>@item.SOYAD</td>
+            <td>@item.DETAY</td>
+            <td>
+                <a href="/Yazar/YazarGetir/@item.ID" class="btn btn-success">Guncelle</a>
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "YazarSil", new { id = item.ID },
+               new { @class = "btn btn-danger", onclick = "return confirm('Silinsinmi?')" })
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Yazar/YazarEkle/" class="btn btn-success">Yazar Ekle</a>

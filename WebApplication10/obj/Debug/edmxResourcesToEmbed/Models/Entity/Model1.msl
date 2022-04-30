@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVC3KATMANLIDBModelStoreContainer" CdmEntityContainer="MVC3KATMANLIDBEntities">
+    <EntitySetMapping Name="Table_Ceza">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Ceza">
+        <MappingFragment StoreEntitySet="Table_Ceza">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UYE" ColumnName="UYE" />
+          <ScalarProperty Name="BASLANGIC" ColumnName="BASLANGIC" />
+          <ScalarProperty Name="BITIS" ColumnName="BITIS" />
+          <ScalarProperty Name="PARA" ColumnName="PARA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Haraket">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Haraket">
+        <MappingFragment StoreEntitySet="Table_Haraket">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KITAB" ColumnName="KITAB" />
+          <ScalarProperty Name="UYE" ColumnName="UYE" />
+          <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+          <ScalarProperty Name="ALISTARIHI" ColumnName="ALISTARIHI" />
+          <ScalarProperty Name="VERISTARIHI" ColumnName="VERISTARIHI" />
+          <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
+          <ScalarProperty Name="UYEGETIRTARIH" ColumnName="UYEGETIRTARIH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Kasa">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Kasa">
+        <MappingFragment StoreEntitySet="Table_Kasa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AY" ColumnName="AY" />
+          <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Kategori">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Kategori">
+        <MappingFragment StoreEntitySet="Table_Kategori">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Kategori_Ad" ColumnName="Kategori_Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Kitab">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Kitab">
+        <MappingFragment StoreEntitySet="Table_Kitab">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+          <ScalarProperty Name="YAZAR" ColumnName="YAZAR" />
+          <ScalarProperty Name="BASIM_YIL" ColumnName="BASIM_YIL" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+          <ScalarProperty Name="YAYIN_EVI" ColumnName="YAYIN_EVI" />
+          <ScalarProperty Name="SAYFA_SAYI" ColumnName="SAYFA_SAYI" />
+          <ScalarProperty Name="KITAB_SAYI" ColumnName="KITAB_SAYI" />
+          <ScalarProperty Name="KITAB_Resim" ColumnName="KITAB_Resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Personel">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Personel">
+        <MappingFragment StoreEntitySet="Table_Personel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Uyeler">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Uyeler">
+        <MappingFragment StoreEntitySet="Table_Uyeler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="KULLANICIAD" ColumnName="KULLANICIAD" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="FOTOGRAH" ColumnName="FOTOGRAH" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="OKULMU" ColumnName="OKULMU" />
+          <ScalarProperty Name="UNIVERSITEMI" ColumnName="UNIVERSITEMI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tablo_YAZAR">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Tablo_YAZAR">
+        <MappingFragment StoreEntitySet="Tablo_YAZAR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="DETAY" ColumnName="DETAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Hakkimizda">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_Hakkimizda">
+        <MappingFragment StoreEntitySet="Table_Hakkimizda">
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_ILETISIM">
+      <EntityTypeMapping TypeName="MVC3KATMANLIDBModel.Table_ILETISIM">
+        <MappingFragment StoreEntitySet="Table_ILETISIM">
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+          <ScalarProperty Name="KONU" ColumnName="KONU" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

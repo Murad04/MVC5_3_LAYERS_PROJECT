@@ -1,0 +1,46 @@
+﻿@model _3KATMANLIKUTUPHANEMVCUDEMY.Models.Entity.Table_Kitab
+@{
+    ViewBag.Title = "KitabGetir";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@using (Html.BeginForm("KitabGuncelle", "Kitab", FormMethod.Post))
+{
+    <div style="margin-bottom:15px;"></div>
+    <div class="form-group">
+        <div style="margin-top:15px;">
+            <label>Kitab ID</label>
+            @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px;">
+            <label>Kitab AD:</label>
+            @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab Sayfa Sayi:</label>
+            @Html.TextBoxFor(k => k.SAYFA_SAYI, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab DURUM:</label>
+            @Html.TextBoxFor(k => k.DURUM, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab Yayin Evi:</label>
+            @Html.TextBoxFor(k => k.YAYIN_EVI, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab IL:</label>
+            @Html.TextBoxFor(k => k.BASIM_YIL, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab Yazar:</label>
+            @Html.DropDownListFor(k => k.YAZAR, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        </div> <div style="margin-top:15px;">
+            <label>Kitab Kategori:</label>
+            @Html.DropDownListFor(k => k.KATEGORI, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px;">
+            <label>Kitab say: </label>
+            @Html.TextBoxFor(k=>k.KITAB_SAYI,new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-success">Guncelle</button>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,21 @@
+﻿@model MVC5_3_LAYERS_PROJECT.Models.Entity.Table_Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>PersonelEkle</h2>
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px;">
+        <label>Personel Ad</label>
+        <br />
+        @Html.TextBoxFor(x => x.PERSONEL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PERSONEL, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px;">
+
+        <button class="btn btn-success" id="Btn1">Kaydet</button>
+    </div>
+
+</form>

@@ -1,0 +1,43 @@
+﻿@model MVC5_3_LAYERS_PROJECT.Models.Entity.Table_Haraket
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:16px;">
+        <label>Uye ID</label>
+        @Html.TextBoxFor(k => k.UYE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.UYE, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:16px;">
+        <label>Kitab ID</label>
+        @Html.TextBoxFor(k => k.KITAB, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(k => k.KITAB, "", new { @style = "color:red" })
+
+    </div>
+
+    <div style="margin-top:16px;">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(k => k.PERSONEL, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:16px;">
+        <label>Veris Tarihi</label>
+        <input type="text" class="form-control" name="ALISTARIHI" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:16px;">
+        <label>Alis Tarihi</label>
+        <input type="text" class="form-control" name="VERISTARIHI" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+    <div style="margin-top:16px;">
+        <button class="btn btn-outline-success">Odunc et</button>
+        <input type="hidden" value="True" name="ISLEMDURUM" />
+    </div>
+
+</form>

@@ -1,0 +1,28 @@
+﻿@using _3KATMANLIKUTUPHANEMVCUDEMY.Models.Entity;
+@model List<Table_Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Kategori</h2>
+<title>Kategoriler</title>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<table class=" form-group">
+    <tr>
+        <th>KATEGORI ID</th>
+        <th>KATEGORI AD</th>
+        <th>Sil</th>
+        <th>Guncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Kategori_Ad</td>
+            <td><a href="/Kategori/KategoriSil/@item.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kategori/KategoriGetir/@item.ID" class="btn btn-warning">Guncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kategori/KategoriEkle/" class="btn btn-success">Yeni kategori</a>

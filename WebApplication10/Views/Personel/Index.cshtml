@@ -1,0 +1,30 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity
+@model List<Table_Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Personeller</h2>
+<title>Personeller</title>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>PERSONEL AD</th>
+        <th colspan="2">ISLEMLER</th>
+    </tr>
+    @foreach (var itm in Model)
+    {
+        <tr>
+            <td>@itm.ID</td>
+            <td>@itm.PERSONEL</td>
+            <td>
+                <a href="/Personel/PersonelGetir/@itm.ID" class="btn btn-outline-success">Guncelle</a>
+            </td>
+            <td>
+                <a href="/Personel/PersonelSil/@itm.ID" class="btn btn-outline-danger">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-outline-primary">Ekle</a>

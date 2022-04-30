@@ -1,0 +1,45 @@
+﻿@model _3KATMANLIKUTUPHANEMVCUDEMY.Models.Entity.Table_Kitab
+@{
+    ViewBag.Title = "KitabEkle";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+     <div style="margin-top:15px;">
+        <label>Kitab Ad:</label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <label>Kitab Sayfa Say:</label>
+        @Html.TextBoxFor(k => k.SAYFA_SAYI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <label>Kitab IL:</label>
+        @Html.TextBoxFor(k => k.BASIM_YIL, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <label>Kitab Yayin ev:</label>
+        @Html.TextBoxFor(k => k.YAYIN_EVI, new { @class = "form-control" })
+    </div>
+    @*<div style="margin-top:15px;">
+        <label>Kitab Durum:</label>
+        @Html.TextBoxFor(k => k.DURUM, new { @class = "form-control" })
+    </div>*@
+    <input type="hidden" value="True" name="DURUM" />
+    <div style="margin-top:15px;">
+        <label>Kitab Kategori:</label>
+        @Html.DropDownListFor(k=>k.KATEGORI,(List<SelectListItem>)ViewBag.dgr1,new { @class="form-control"}) 
+    </div>
+    <div style="margin-top:15px;">
+        <label>Kitab Yazar:</label>
+        @Html.DropDownListFor(k=>k.YAZAR,(List<SelectListItem>)ViewBag.dgr2,new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitab Sayi:</label>
+        @Html.TextBoxFor(k=>k.KITAB_SAYI,new  {@class="form-control" })
+    </div>
+    <button class="btn btn-success" >Ekle</button>
+</form>
+

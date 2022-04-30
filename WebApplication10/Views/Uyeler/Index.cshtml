@@ -1,0 +1,55 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Table_Uyeler>
+@using (Html.BeginForm("Index", "Uyeler", FormMethod.Get))
+{
+
+    <div style="margin-bottom:15px;margin-top:15px;">
+        <b>Uye ad yaz:&nbsp;</b> @Html.TextBox("istek")
+        <input type="submit" value="Ara" />
+    </div>
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Uyeler</h2>
+<title>UYELER</title>
+
+<table class="table table-bordered" style="border-bottom-left-radius:9px;">
+    <tr>
+        <th> ID</th>
+        <th> AD</th>
+        <th> SOYAD</th>
+        <th> MAIL ADRES</th>
+        <th> KULLANICI AD</th>
+        <th> KULLANICI PAROL</th>
+        <th> KULLANICI TELEFON</th>
+        <th> KULLANICI OKUL</th>
+        <th colspan="2">ISLEMLER</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.AD</td>
+            <td>@item.SOYAD</td>
+            <td>@item.MAIL</td>
+            <td>@item.KULLANICIAD</td>
+            <td>@item.SIFRE</td>
+            <td>@item.TELEFON</td>
+            <td>@item.OKULMU</td>
+            <td>@item.UNIVERSITEMI</td>
+            <td>
+                <a href="/Uyeler/UyeSil/@item.ID" class="btn btn-outline-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Uyeler/UyeGetir/@item.ID" class="btn btn-outline-warning">Guncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<a href="/Uyeler/UyeEkle/" class="btn btn-success">Ekle</a>

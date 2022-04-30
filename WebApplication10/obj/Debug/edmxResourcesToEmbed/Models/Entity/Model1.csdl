@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVC3KATMANLIDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Table_Ceza">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UYE" Type="Int32" />
+    <Property Name="BASLANGIC" Type="DateTime" Precision="0" />
+    <Property Name="BITIS" Type="DateTime" Precision="0" />
+    <Property Name="PARA" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Table_Uyeler" Relationship="Self.FK_Table_Ceza_Table_Uyeler" FromRole="Table_Ceza" ToRole="Table_Uyeler" />
+  </EntityType>
+  <EntityType Name="Table_Haraket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KITAB" Type="Int32" />
+    <Property Name="UYE" Type="Int32" />
+    <Property Name="PERSONEL" Type="Int32" />
+    <Property Name="ALISTARIHI" Type="DateTime" Precision="0" />
+    <Property Name="VERISTARIHI" Type="DateTime" Precision="0" />
+    <Property Name="ISLEMDURUM" Type="Boolean" />
+    <Property Name="UYEGETIRTARIH" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Table_Kitab" Relationship="Self.FK_Table_Haraket_Table_Kitab" FromRole="Table_Haraket" ToRole="Table_Kitab" />
+    <NavigationProperty Name="Table_Personel" Relationship="Self.FK_Table_Haraket_Table_Personel" FromRole="Table_Haraket" ToRole="Table_Personel" />
+    <NavigationProperty Name="Table_Uyeler" Relationship="Self.FK_Table_Haraket_Table_Uyeler" FromRole="Table_Haraket" ToRole="Table_Uyeler" />
+  </EntityType>
+  <EntityType Name="Table_Kasa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Table_Kategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kategori_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Kitab" Relationship="Self.FK_Table_Kitab_Table_Kategori" FromRole="Table_Kategori" ToRole="Table_Kitab" />
+  </EntityType>
+  <EntityType Name="Table_Kitab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KATEGORI" Type="Byte" />
+    <Property Name="YAZAR" Type="Int32" />
+    <Property Name="BASIM_YIL" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="DURUM" Type="Boolean" />
+    <Property Name="YAYIN_EVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SAYFA_SAYI" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="KITAB_SAYI" Type="Int32" />
+    <Property Name="KITAB_Resim" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Table_Haraket" Relationship="Self.FK_Table_Haraket_Table_Kitab" FromRole="Table_Kitab" ToRole="Table_Haraket" />
+    <NavigationProperty Name="Table_Kategori" Relationship="Self.FK_Table_Kitab_Table_Kategori" FromRole="Table_Kitab" ToRole="Table_Kategori" />
+    <NavigationProperty Name="Tablo_YAZAR" Relationship="Self.FK_Table_Kitab_Tablo_YAZAR" FromRole="Table_Kitab" ToRole="Tablo_YAZAR" />
+  </EntityType>
+  <EntityType Name="Table_Personel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PERSONEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Haraket" Relationship="Self.FK_Table_Haraket_Table_Personel" FromRole="Table_Personel" ToRole="Table_Haraket" />
+  </EntityType>
+  <EntityType Name="Table_Uyeler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KULLANICIAD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SIFRE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FOTOGRAH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OKULMU" Type="Boolean" />
+    <Property Name="UNIVERSITEMI" Type="Boolean" />
+    <NavigationProperty Name="Table_Ceza" Relationship="Self.FK_Table_Ceza_Table_Uyeler" FromRole="Table_Uyeler" ToRole="Table_Ceza" />
+    <NavigationProperty Name="Table_Haraket" Relationship="Self.FK_Table_Haraket_Table_Uyeler" FromRole="Table_Uyeler" ToRole="Table_Haraket" />
+  </EntityType>
+  <EntityType Name="Tablo_YAZAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DETAY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Table_Kitab" Relationship="Self.FK_Table_Kitab_Tablo_YAZAR" FromRole="Tablo_YAZAR" ToRole="Table_Kitab" />
+  </EntityType>
+  <Association Name="FK_Table_Ceza_Table_Uyeler">
+    <End Role="Table_Uyeler" Type="Self.Table_Uyeler" Multiplicity="0..1" />
+    <End Role="Table_Ceza" Type="Self.Table_Ceza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Ceza">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Kitab">
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Kitab">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="KITAB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Personel">
+    <End Role="Table_Personel" Type="Self.Table_Personel" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Personel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Haraket_Table_Uyeler">
+    <End Role="Table_Uyeler" Type="Self.Table_Uyeler" Multiplicity="0..1" />
+    <End Role="Table_Haraket" Type="Self.Table_Haraket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Haraket">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Kitab_Table_Kategori">
+    <End Role="Table_Kategori" Type="Self.Table_Kategori" Multiplicity="0..1" />
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Kategori">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Kitab">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Kitab_Tablo_YAZAR">
+    <End Role="Tablo_YAZAR" Type="Self.Tablo_YAZAR" Multiplicity="0..1" />
+    <End Role="Table_Kitab" Type="Self.Table_Kitab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tablo_YAZAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table_Kitab">
+        <PropertyRef Name="YAZAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVC3KATMANLIDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table_Ceza" EntityType="Self.Table_Ceza" />
+    <EntitySet Name="Table_Haraket" EntityType="Self.Table_Haraket" />
+    <EntitySet Name="Table_Kasa" EntityType="Self.Table_Kasa" />
+    <EntitySet Name="Table_Kategori" EntityType="Self.Table_Kategori" />
+    <EntitySet Name="Table_Kitab" EntityType="Self.Table_Kitab" />
+    <EntitySet Name="Table_Personel" EntityType="Self.Table_Personel" />
+    <EntitySet Name="Table_Uyeler" EntityType="Self.Table_Uyeler" />
+    <EntitySet Name="Tablo_YAZAR" EntityType="Self.Tablo_YAZAR" />
+    <AssociationSet Name="FK_Table_Ceza_Table_Uyeler" Association="Self.FK_Table_Ceza_Table_Uyeler">
+      <End Role="Table_Uyeler" EntitySet="Table_Uyeler" />
+      <End Role="Table_Ceza" EntitySet="Table_Ceza" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Kitab" Association="Self.FK_Table_Haraket_Table_Kitab">
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Personel" Association="Self.FK_Table_Haraket_Table_Personel">
+      <End Role="Table_Personel" EntitySet="Table_Personel" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Haraket_Table_Uyeler" Association="Self.FK_Table_Haraket_Table_Uyeler">
+      <End Role="Table_Uyeler" EntitySet="Table_Uyeler" />
+      <End Role="Table_Haraket" EntitySet="Table_Haraket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Kitab_Table_Kategori" Association="Self.FK_Table_Kitab_Table_Kategori">
+      <End Role="Table_Kategori" EntitySet="Table_Kategori" />
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Kitab_Tablo_YAZAR" Association="Self.FK_Table_Kitab_Tablo_YAZAR">
+      <End Role="Tablo_YAZAR" EntitySet="Tablo_YAZAR" />
+      <End Role="Table_Kitab" EntitySet="Table_Kitab" />
+    </AssociationSet>
+    <EntitySet Name="Table_Hakkimizda" EntityType="MVC3KATMANLIDBModel.Table_Hakkimizda" />
+    <EntitySet Name="Table_ILETISIM" EntityType="MVC3KATMANLIDBModel.Table_ILETISIM" />
+  </EntityContainer>
+  <EntityType Name="Table_Hakkimizda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table_ILETISIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MESAJ" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

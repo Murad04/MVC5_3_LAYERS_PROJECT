@@ -1,0 +1,34 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity;
+@model List<Table_Haraket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+
+<h2>Odunc ver</h2>
+
+<table class="table table-bordered">
+    <tr>
+
+        <td>KITAB AD</td>
+        <td>Uye</td>
+        <td>Personel </td>
+        <td>ALIS tarih</td>
+        <td>Iade Tarih</td>
+        <td colspan="2">ISLEMLER</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Table_Kitab.AD</th>
+            <th>@item.Table_Uyeler.AD</th>
+            <th>@item.Table_Personel.PERSONEL</th>
+            <th>@Convert.ToDateTime(@item.ALISTARIHI).ToString("dd/MM/yyyy")</th>
+            <th>@Convert.ToDateTime(@item.VERISTARIHI).ToString("dd/MM/yyyy")</th>
+            <th>
+                <a href="/Odunc/Odunciade/@item.ID" class="btn btn-outline-success">Iade et</a>
+            </th>
+        </tr>
+    }
+</table>

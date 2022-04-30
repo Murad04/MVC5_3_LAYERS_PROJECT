@@ -1,0 +1,51 @@
+﻿@model  MVC5_3_LAYERS_PROJECT.Models.Entity.Table_Uyeler
+
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>UyeEkle</h2>
+
+
+<title>Uye Ekle</title>
+@using (Html.BeginForm("UyeEkle", "Uyeler", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Uye Ad</label>
+        @Html.TextBoxFor(u => u.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.AD, "", new { @style = "color:red" })
+        <br />
+        <label>Uye Soyad</label>
+        @Html.TextBoxFor(u => u.SOYAD, new { @class = "form-control" })
+        <br />
+        <label>Uye Mail</label>
+        @Html.TextBoxFor(u => u.MAIL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.MAIL, "", new { @style = "color:red" })
+        <br />
+        <label>Uye Kullanici ad</label>
+        @Html.TextBoxFor(u => u.KULLANICIAD, new { @class = "form-control" })
+        <br />
+        <label>Uye Kullanici Parol</label>
+        @Html.TextBoxFor(u => u.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.SIFRE, "", new { @style = "color:red" })
+
+        <br />
+        <label>Uye Photo</label>
+        @Html.TextBoxFor(u => u.FOTOGRAH, new { @class = "form-control" })
+        <br />
+        <label>Uye telefon</label>
+        @Html.TextBoxFor(u => u.TELEFON, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.TELEFON, "", new { @style = "color:red" })
+
+        <br />
+        <label>Uye okul</label>
+        @Html.TextBoxFor(u => u.OKULMU, new { @class = "form-control" })
+        <br />
+        <label>Uye universite</label>
+        @Html.TextBoxFor(u => u.UNIVERSITEMI, new {@class="form-control"})
+    </div>
+    <div>
+        <button class="btn btn-outline-success">Ekle</button>
+    </div>
+}

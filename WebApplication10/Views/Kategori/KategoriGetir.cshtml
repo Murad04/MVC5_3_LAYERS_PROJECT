@@ -1,0 +1,19 @@
+﻿@model _3KATMANLIKUTUPHANEMVCUDEMY.Models.Entity.Table_Kategori
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k=>k.ID)  
+        @Html.TextBoxFor(k=>k.ID,new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k=>k.Kategori_Ad)
+        @Html.TextBoxFor(k=>k.Kategori_Ad,new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">Guncelle</button>
+    </div>
+}

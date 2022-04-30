@@ -1,0 +1,24 @@
+﻿@model MVC5_3_LAYERS_PROJECT.Models.Entity.Tablo_YAZAR
+
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Yazar AD</label>
+        @Html.TextBoxFor(x => x.YAZAR_AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar SOYAD</label>
+        @Html.TextBoxFor(x => x.YAZAR_SOYAD, new { @class = "form-control" })
+    </div> <div style="margin-top:15px">
+        <label>Yazar BILGI</label>
+        @Html.TextAreaFor(x => x.YAZAR_BILGI, new { @class = "form-control" })
+        <div style="margin-top:1px">
+            <button class="btn btn-outline-success">Yazar Ekle</button>
+        </div>
+    </div>
+</form>

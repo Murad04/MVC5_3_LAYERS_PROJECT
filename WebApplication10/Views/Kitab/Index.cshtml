@@ -1,0 +1,53 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity;
+@model List<Table_Kitab>
+@using (Html.BeginForm("Index", "Kitab", FormMethod.Get))
+{
+
+    <div style="margin-bottom:15px;margin-top:15px;">
+        <b>Kitab yaz:&nbsp;</b> @Html.TextBox("istek")
+        <input type="submit" value="Ara" />
+    </div>
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Kitablar</h2>
+<title>Kitablar</title>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>KITAB AD</td>
+        <td>KITAB YAZAR</td>
+        <td>KITAB KATEGORI</td>
+        <td>KITAB IL</td>
+        <td>KITAB YAYIN EVI</td>
+        <td>KITAB SAYFA SAYI</td>
+        <td>KITAB DURUM</td>
+        <td>KITAB SAYI</td>
+        <td colspan="2">ISLEMLER</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <th>@item.AD</th>
+            <th>@item.YAZAR</th>
+            <th>@item.KATEGORI</th>
+            <th>@item.BASIM_YIL</th>
+            <th>@item.YAYIN_EVI</th>
+            <th>@item.SAYFA_SAYI</th>
+            <th>@item.DURUM</th>
+            <th>@item.KITAB_SAYI</th>
+            <th>
+                <a href="/Kitab/KitabSil/@item.ID" class="btn btn-danger">Sil</a>
+            </th>
+            <th>
+                <a href="/Kitab/KitabGetir/@item.ID" class="btn btn-warning">Guncelle</a>
+            </th>
+        </tr>
+    }
+</table>
+<a href="/Kitab/KitabEkle/" class="btn btn-success">Yeni Ekle</a>

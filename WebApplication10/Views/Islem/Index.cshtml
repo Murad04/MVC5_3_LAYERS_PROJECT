@@ -1,0 +1,41 @@
+﻿@using MVC5_3_LAYERS_PROJECT.Models.Entity
+@model List<Table_Haraket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Islem", FormMethod.Get))
+{
+    <asp:Repeater ID="Repeater1" runat="server">
+
+        <h2>Iadesi alinan kitap listesi</h2>
+        <!--Verilenler-->
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>KITAB AD</th>
+                <th>UYE</th>
+                <th>PERSONEL</th>
+                <th>ALIS</th>
+                <th>Uye iade tarihi</th>
+                <th>Detaylar</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Table_Kitab.AD</td>
+                    <td>@item.Table_Uyeler.AD</td>
+                    <td>@item.Table_Personel.PERSONEL</td>
+                    <td>@Convert.ToDateTime(item.VERISTARIHI).ToString("dd/MM/yyyy")</td>
+                    <td>@Convert.ToDateTime(item.UYEGETIRTARIH).ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a href="/Odunc/Odunciade/@item.ID" class="btn btn-default" style="background-color:#f87cdf; color:white">Detaylar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+    </asp:Repeater>
+}
