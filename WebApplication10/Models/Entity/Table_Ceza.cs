@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVC5_3_LAYERS_PROJECT.Models.Entity
+namespace WebApplication10.Models.Entity
 {
     using System;
     using System.Collections.Generic;

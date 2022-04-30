@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MVC5_3_LAYERS_PROJECT.Models.Entity;
+using WebApplication10.Models.Entity;
 
-namespace MVC5_3_LAYERS_PROJECT.Models.Classes
+namespace WebApplication10.Models.Classes
 {
     public class Class1
     {

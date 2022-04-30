@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVC5_3_LAYERS_PROJECT.Models.Entity
+namespace WebApplication10.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tablo_YAZAR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,13 @@ namespace MVC5_3_LAYERS_PROJECT.Models.Entity
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage="Name is required")]
         public string AD { get; set; }
+
+        [Required(ErrorMessage = "Surname is required")]
         public string SOYAD { get; set; }
+
+        [Required(ErrorMessage = "Bio is required")]
         public string DETAY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

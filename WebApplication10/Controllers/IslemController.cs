@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MVC5_3_LAYERS_PROJECT.Models.Entity;
-namespace MVC5_3_LAYERS_PROJECT.Controllers
+using WebApplication10.Models.Entity;
+namespace WebApplication10.Controllers
 {
     public class IslemController : Controller
     {

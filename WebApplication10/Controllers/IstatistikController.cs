@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC5_3_LAYERS_PROJECT.Controllers
+namespace WebApplication10.Controllers
 {
     public class IstatistikController : Controller
     {
@@ -13,5 +13,10 @@ namespace MVC5_3_LAYERS_PROJECT.Controllers
         {
             return View();
         }
+        public ActionResult Hava()
+        {
+            return View();
+        }
+
     }
 }

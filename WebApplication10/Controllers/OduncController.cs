@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Sql;
-using MVC5_3_LAYERS_PROJECT.Models.Entity;
+using WebApplication10.Models.Entity;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace MVC5_3_LAYERS_PROJECT.Controllers
+namespace WebApplication10.Controllers
 {
     public class OduncController : Controller
     {

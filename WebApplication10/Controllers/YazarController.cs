@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MVC5_3_LAYERS_PROJECT.Models.Entity;
-namespace MVC5_3_LAYERS_PROJECT.Controllers
+using WebApplication10.Models.Entity;
+namespace WebApplication10.Controllers
 {
     public class YazarController : Controller
     {
@@ -23,6 +23,10 @@ namespace MVC5_3_LAYERS_PROJECT.Controllers
         [HttpPost]
         public ActionResult YazarEkle(Tablo_YAZAR y)
         {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
             mvc3KatmanliKUtphaneEntities1.Tablo_YAZAR.Add(y);
             mvc3KatmanliKUtphaneEntities1.SaveChanges();
             return RedirectToAction("Index");

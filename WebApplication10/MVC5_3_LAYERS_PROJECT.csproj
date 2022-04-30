@@ -16,8 +16,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVC5_3_LAYERS_PROJECT</RootNamespace>
-    <AssemblyName>MVC5_3_LAYERS_PROJECT</AssemblyName>
+    <RootNamespace>WebApplication10</RootNamespace>
+    <AssemblyName>WebApplication10</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -779,6 +779,7 @@
     <Content Include="Views\Yazar\YazarEkle.cshtml" />
     <Content Include="Views\Yazar\YazarGetir.cshtml" />
     <Content Include="Views\Istatistik\Index.cshtml" />
+    <Content Include="Views\Istatistik\Hava.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
