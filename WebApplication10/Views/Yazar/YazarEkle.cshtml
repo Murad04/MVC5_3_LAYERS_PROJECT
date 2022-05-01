@@ -8,16 +8,16 @@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
-        <label>Yazar AD</label>
+        <label>Yazar Ad</label>
         @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
         @Html.ValidationMessageFor(x=>x.AD)
     </div>
     <div style="margin-top:15px">
-        <label>Yazar SOYAD</label>
+        <label>Yazar Soyad</label>
         @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
         @Html.ValidationMessageFor(x=>x.SOYAD)
     </div> <div style="margin-top:15px">
-        <label>Yazar BILGI</label>
+        <label>Yazar Detay</label>
         @Html.TextAreaFor(x => x.DETAY, new { @class = "form-control" })
         @Html.ValidationMessageFor(x=>x.DETAY)
         <div style="margin-top:1px">
